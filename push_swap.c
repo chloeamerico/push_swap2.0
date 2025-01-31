@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
+/*   By: chloeamerico <chloeamerico@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:53:36 by camerico          #+#    #+#             */
-/*   Updated: 2025/01/21 17:41:15 by camerico         ###   ########.fr       */
+/*   Updated: 2025/01/31 14:39:46 by chloeameric      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,35 @@ t_stack	*create_node_first(t_stack **stack, int	value)
 	new->next = *stack;
 
 	*stack = new;
-	return (new); //peut etre renvoyer *stack ??
+	return (new); //peut-etre renvoyer *stack ??
+}
+
+//fonction pour verifier si c'est deja trié
+bool	is_sorted(t_stack *stack) //fonction en booleen
+{
+	while (stack->next)
+	{
+		if (stack->value > stack->next->value)
+			return (false);
+		stack = stack->next;
+	}
+	return (true);
+}
+
+//pour choisir quel algorithme choisir
+void	which_algo(t_stack *a, t_stack *b)
+{
+	int	size;
+
+	size = stack_size(a);
+	if (is_sorted(a) == true)
+		return;
+	if (size <= 3)
+		sort_3(a, b);
+	else if (size <= 5)
+		sort_5(a, b);
+	else
+		radix_sort(a, b);
 }
 
 // // initialiser une pile a vide
@@ -80,21 +108,39 @@ t_stack	*create_node_first(t_stack **stack, int	value)
 
 int	main(int argc, char **argv)
 {
-	t_stack	*stack_a;
-	t_stack	*stack_b;
+	t_stack	*a;
+	t_stack	*b;
 	int	i;
 
-	if (check_args == 1)
-		return (0);
-	stack_a = NULL;
-	stack_b = NULL;
-	i = argc - 1;
-	while(i > 0)
+	if (argc < 2)
 	{
-		create_node_first(&stack_a, ft_atol(argv[i]));
-		i--;
+		write(1, "\n", 1);
+		return (0);
+	}
+
+	if (check_args == 1) //check si c'est valide et les limites
+	{
+		write(1, "Error\n", 6);
+		return (0);
 	}
 	
-	
+	a = NULL;
+	b = NULL;
+	i = argc - 1;
+	while(i > 1)
+	{
+		create_node_first(&a, ft_atoi(argv[i]));
+		i--;
+	}
+	if (check_double(a)) // check les doubles dans a
+	{
+		write(1, "Error\n", 6);
+		free(a);
+		free(b);
+		return (0);
+	}
+	which_algo(a, b);
+	free(a);
+	free(b);
 	return (0);
 }

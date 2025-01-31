@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
+/*   By: chloeamerico <chloeamerico@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 18:52:57 by camerico          #+#    #+#             */
-/*   Updated: 2025/01/23 12:46:41 by camerico         ###   ########.fr       */
+/*   Updated: 2025/01/31 14:41:56 by chloeameric      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # include <strings.h>
 # include <unistd.h>
 #include <limits.h>
+#include <stdbool.h>
 
 /* ************************************************************************** */
 /* DEFINES                                                                    */
@@ -58,7 +59,8 @@ t_stack *new_node(int value);
 void	add_first(t_stack **stack, t_stack *new);
 t_stack	*create_node_first(t_stack **stack, int	value);
 void	sort_3(t_stack *a, t_stack *b);
-
+void	sort_5(t_stack *a, t_stack *b);
+void radix_sort(t_stack **a, t_stack **b);
 
 /* ************************************************************************** */
 /* DEBUG                                                                      */

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
+/*   By: chloeamerico <chloeamerico@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 16:52:42 by camerico          #+#    #+#             */
-/*   Updated: 2025/01/21 15:05:11 by camerico         ###   ########.fr       */
+/*   Updated: 2025/01/31 11:40:04 by chloeameric      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,18 @@ int valid_number(char *str)
 	return (0);
 }
 
-// applique la fonction valid_number a chaque argument
+int limits(char *str)
+{
+	long nb;
+
+	nb = ft_atol(str);
+	if ((nb > INT_MAX) || (nb < INT_MIN))
+		return (1);
+	return (0);
+}
+
+
+// applique la fonction valid_number et limits a chaque argument
 int check_args(int argc, char **argv)
 {
 	int i;
@@ -54,24 +65,25 @@ int check_args(int argc, char **argv)
 	i = 1;
 	while (argv[i] < argc - 1)
 	{
-		if (valid_number(argv[i]) == 1)
+		if (valid_number(argv[i]) == 1 || limits(argv[i]) == 1)
 			return (1);
 		i++;
 	}
 	return (0);
 }
 
-//parcours la stack et verifie si aucune valeur ne depasse le int min ou le int max
-int	check_limits(t_stack *stack)
-{
-	while (stack)
-	{
-		if((stack->value > INT_MAX) || (stack->value < INT_MIN))
-			return (1);
-		stack = stack->next;
-	}
-	return (0);
-}
+// //parcours la stack et verifie si aucune valeur ne depasse le int min ou le int max
+// int	check_limits(t_stack *stack)
+// {
+// 	while (stack)
+// 	{
+// 		if((stack->value > INT_MAX) || (stack->value < INT_MIN))
+// 			return (1);
+// 		stack = stack->next;
+// 	}
+// 	return (0);
+// }
+
 
 // parcours la stack et verifie si aucune valeur n'est presente en double
 int check_double(t_stack *stack)
