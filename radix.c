@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   radix.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
+/*   By: chloeamerico <chloeamerico@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 16:19:02 by camerico          #+#    #+#             */
-/*   Updated: 2025/01/23 20:29:04 by camerico         ###   ########.fr       */
+/*   Updated: 2025/01/31 16:02:36 by chloeameric      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	*dupplicate_in_array(t_stack *stack)
 }
 
 // parcourir chaque nombre et leur attribuer un index
-void	index(t_stack *stack, int *array)
+void	search_index(t_stack *stack, int *array)
 {
 	int	i; // pour parcourir le tableau
 	int	index; // valeur a attribuer au champ "index" de la structure
@@ -110,7 +110,7 @@ void radix_sort(t_stack **a, t_stack **b)
         while (j < size)	 // Parcourir tous les éléments de 'a'
         {
             if (check_bit((*a)->index, i))	// Vérifie si le iᵉ bit est 1
-                ra(a);				// Conserver dans 'a' avec ra
+                ra(*a);				// Conserver dans 'a' avec ra
             else
                 pb(a, b);				// Déplacer dans 'b' avec pb
             j++;

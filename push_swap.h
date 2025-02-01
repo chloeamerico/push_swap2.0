@@ -6,7 +6,7 @@
 /*   By: chloeamerico <chloeamerico@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 18:52:57 by camerico          #+#    #+#             */
-/*   Updated: 2025/01/31 14:41:56 by chloeameric      ###   ########.fr       */
+/*   Updated: 2025/01/31 15:58:00 by chloeameric      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,16 +51,38 @@ typedef struct 		s_stack
 /* PROTO                                                                      */
 /* ************************************************************************** */
 
+int	ft_atoi(const char *nptr);
 int valid_number(char *str);
+int limits(char *str);
 int check_args(int argc, char **argv);
-int	check_limits(t_stack *stack);
 int check_double(t_stack *stack);
-t_stack *new_node(int value);
-void	add_first(t_stack **stack, t_stack *new);
 t_stack	*create_node_first(t_stack **stack, int	value);
-void	sort_3(t_stack *a, t_stack *b);
-void	sort_5(t_stack *a, t_stack *b);
+bool	is_sorted(t_stack *stack);
+void	which_algo(t_stack *a, t_stack *b);
+void	push(t_stack **src, t_stack **dest);
+void	pa(t_stack **a, t_stack **b);
+void	pb(t_stack **a, t_stack **b);
+void	rotate(t_stack **stack);
+void	ra(t_stack *a);
+void	rb(t_stack *b);
+void	rr(t_stack *a, t_stack *b);
+void	reverse_rotate(t_stack **stack);
+void	rra(t_stack *a);
+void	rrb(t_stack *b);
+void	rrr(t_stack *a, t_stack *b);
+void	swap(t_stack **stack);
+void	sa(t_stack *a);
+void	sb(t_stack *b);
+void	ss(t_stack *a, t_stack *b);
+int	*dupplicate_in_array(t_stack *stack);
+void	search_index(t_stack *stack, int *array);
+int	nb_of_bits(t_stack *stack);
+int check_bit(int index, int bit);
 void radix_sort(t_stack **a, t_stack **b);
+int	stack_size(t_stack *stack);
+void	sort_3(t_stack *a);
+void	sort_5(t_stack *a, t_stack *b);
+int	find_index_min(t_stack *a);
 
 /* ************************************************************************** */
 /* DEBUG                                                                      */

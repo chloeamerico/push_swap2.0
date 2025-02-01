@@ -6,7 +6,7 @@
 /*   By: chloeamerico <chloeamerico@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 23:28:21 by chloeameric       #+#    #+#             */
-/*   Updated: 2025/01/29 19:29:58 by chloeameric      ###   ########.fr       */
+/*   Updated: 2025/01/31 16:04:56 by chloeameric      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,19 +51,19 @@ void	rotate(t_stack **stack)
 
 void	ra(t_stack *a)
 {
-	rotate(a);
-	ft_printf("ra\n");
+	rotate(&a);
+	printf("ra\n"); //ATTENTION !! mettre ft_printf avant de push
 }
 
 void	rb(t_stack *b)
 {
-	rotate(b);
-	ft_printf("rb\n");
+	rotate(&b);
+	printf("rb\n");
 }
 
 void	rr(t_stack *a, t_stack *b)
 {
-	rotate(a);
-	rotate(b);
-	ft_printf("rr\n");
+	rotate(&a);
+	rotate(&b);
+	printf("rr\n");
 }

@@ -6,7 +6,7 @@
 /*   By: chloeamerico <chloeamerico@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 23:43:44 by chloeameric       #+#    #+#             */
-/*   Updated: 2025/01/29 20:43:42 by chloeameric      ###   ########.fr       */
+/*   Updated: 2025/01/31 16:04:25 by chloeameric      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,23 @@ void	reverse_rotate(t_stack **stack)
 		*stack = before_last->next;
 		before_last->next = NULL;
 	}	
+}
+
+void	rra(t_stack *a)
+{
+	reverse_rotate(&a);
+	printf("rra\n"); //ATTENTION !! mettre ft_printf avant de push
+}
+
+void	rrb(t_stack *b)
+{
+	reverse_rotate(&b);
+	printf("rrb\n");
+}
+
+void	rrr(t_stack *a, t_stack *b)
+{
+	reverse_rotate(&a);
+	reverse_rotate(&b);
+	printf("rrr\n");
 }

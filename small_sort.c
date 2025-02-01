@@ -1,18 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   radix.c                                            :+:      :+:    :+:   */
+/*   small_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
+/*   By: chloeamerico <chloeamerico@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 16:54:05 by camerico          #+#    #+#             */
-/*   Updated: 2025/01/22 15:38:30 by camerico         ###   ########.fr       */
+/*   Updated: 2025/01/31 17:13:37 by chloeameric      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-// faire une fonction is_sorted
 
 void	sort_3(t_stack *a)
 {
@@ -49,7 +47,7 @@ void	sort_5(t_stack *a, t_stack *b)
 	{
 		index_min = find_index_min(a);
 		if (index_min == 0)
-			pb(a, b);
+			pb(&a, &b);
 		else if (index_min <= (stack_size(a) / 2))
 			ra(a);
 		else
@@ -59,7 +57,7 @@ void	sort_5(t_stack *a, t_stack *b)
 	if (stack_size(b) > 1 && b->value < b->next->value) // pour gerer le cas ou on travaille avec 4 nb, donc seulement 1 nb dans stack b
 		sb(b);
 	while (stack_size(b) > 0)
-		pa(b, a);
+		pa(&b, &a);
 }
 
 int	find_index_min(t_stack *a)

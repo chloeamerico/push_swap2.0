@@ -6,7 +6,7 @@
 /*   By: chloeamerico <chloeamerico@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 18:48:31 by camerico          #+#    #+#             */
-/*   Updated: 2025/01/30 20:03:54 by chloeameric      ###   ########.fr       */
+/*   Updated: 2025/01/31 16:00:48 by chloeameric      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,11 @@ void	push(t_stack **src, t_stack **dest)
 void	pa(t_stack **a, t_stack **b)
 {
 	push(b, a);
-	ft_printf("pa\n");
+	printf("pa\n"); //ATTENTION !! mettre ft_printf avant de push
 }
 
 void	pb(t_stack **a, t_stack **b)
 {
 	push(a, b);
-	ft_printf("pb\n");
+	printf("pb\n");
 }
