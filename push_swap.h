@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chloeamerico <chloeamerico@student.42.f    +#+  +:+       +#+        */
+/*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 18:52:57 by camerico          #+#    #+#             */
-/*   Updated: 2025/01/31 15:58:00 by chloeameric      ###   ########.fr       */
+/*   Updated: 2025/02/03 18:42:04 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int check_args(int argc, char **argv);
 int check_double(t_stack *stack);
 t_stack	*create_node_first(t_stack **stack, int	value);
 bool	is_sorted(t_stack *stack);
-void	which_algo(t_stack *a, t_stack *b);
+void	which_algo(t_stack **a, t_stack **b);
 void	push(t_stack **src, t_stack **dest);
 void	pa(t_stack **a, t_stack **b);
 void	pb(t_stack **a, t_stack **b);
@@ -83,6 +83,9 @@ int	stack_size(t_stack *stack);
 void	sort_3(t_stack *a);
 void	sort_5(t_stack *a, t_stack *b);
 int	find_index_min(t_stack *a);
+long	ft_atol(const char *nptr);
+void	free_stack(t_stack **stack);
+
 
 /* ************************************************************************** */
 /* DEBUG                                                                      */

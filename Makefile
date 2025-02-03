@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: chloeamerico <chloeamerico@student.42.f    +#+  +:+       +#+         #
+#    By: camerico <camerico@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/31 15:00:20 by chloeameric       #+#    #+#              #
-#    Updated: 2025/01/31 19:33:08 by chloeameric      ###   ########.fr        #
+#    Updated: 2025/02/03 18:35:09 by camerico         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,12 +22,12 @@ SRCS = ft_atoi.c \
 	rotate.c \
 	small_sort.c \
 	swap.c \
-	utils.c \
+	utils.c
 
 OBJS = $(SRCS:.c=.o)
 HEADER = push_swap.h
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g
+CFLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 

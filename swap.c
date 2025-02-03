@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chloeamerico <chloeamerico@student.42.f    +#+  +:+       +#+        */
+/*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 19:18:00 by camerico          #+#    #+#             */
-/*   Updated: 2025/01/31 17:14:09 by chloeameric      ###   ########.fr       */
+/*   Updated: 2025/02/03 17:20:09 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	swap(t_stack **stack)
 
 		first->next = second->next; // le premier noeud pointe sur le 3e
 		second->next = first; // le deuxieme noeud pointe vers le premier
-		second = *stack; // le second noeud devient la tête de la pile 
+		*stack = second; // le second noeud devient la tête de la pile 
 	}
 }
 

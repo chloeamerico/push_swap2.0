@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chloeamerico <chloeamerico@student.42.f    +#+  +:+       +#+        */
+/*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:53:36 by camerico          #+#    #+#             */
-/*   Updated: 2025/01/31 15:59:33 by chloeameric      ###   ########.fr       */
+/*   Updated: 2025/02/03 20:08:49 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,19 +60,32 @@ bool	is_sorted(t_stack *stack) //fonction en booleen
 }
 
 //pour choisir quel algorithme choisir
-void	which_algo(t_stack *a, t_stack *b)
+void	which_algo(t_stack **a, t_stack **b)
 {
 	int	size;
 
-	size = stack_size(a);
-	if (is_sorted(a) == true)
+	size = stack_size(*a);
+	if (is_sorted(*a) == true)
+	{
+		free_stack(b);
 		return;
-	if (size <= 3)
-		sort_3(a);
-	else if (size <= 5)
-		sort_5(a, b);
-	else
-		radix_sort(&a, &b);
+	}
+	if (size <= 5)
+		sort_5(*a, *b);
+	printf("which algo : Algo choisi avec une taille = %d\n", size);
+	if (size > 5)
+		radix_sort(a, b);
 }
 
+void	free_stack(t_stack **stack)
+{
+	t_stack	*tmp;
+
+	while (*stack)
+	{
+		tmp = *stack;
+		*stack = (*stack)->next;
+		free(tmp);
+	}
+}
 

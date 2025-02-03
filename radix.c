@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   radix.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chloeamerico <chloeamerico@student.42.f    +#+  +:+       +#+        */
+/*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 16:19:02 by camerico          #+#    #+#             */
-/*   Updated: 2025/01/31 16:02:36 by chloeameric      ###   ########.fr       */
+/*   Updated: 2025/02/03 19:51:06 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,9 +90,6 @@ int check_bit(int index, int bit)
 }
 
 
-
-// A VERIFIER - VERSION CHAT GPT
-
 void radix_sort(t_stack **a, t_stack **b)
 {
     int max_bits;	// Nombre de bits nécessaires
@@ -111,8 +108,8 @@ void radix_sort(t_stack **a, t_stack **b)
         {
             if (check_bit((*a)->index, i))	// Vérifie si le iᵉ bit est 1
                 ra(*a);				// Conserver dans 'a' avec ra
-            else
-                pb(a, b);				// Déplacer dans 'b' avec pb
+			else
+				pb(a, b);				// Déplacer dans 'b' avec pb
             j++;
         } 
         while (*b)				// Réintégrer tous les éléments de 'b' dans 'a'
