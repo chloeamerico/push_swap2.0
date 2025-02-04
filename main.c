@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 14:46:28 by chloeameric       #+#    #+#             */
-/*   Updated: 2025/02/04 14:08:56 by camerico         ###   ########.fr       */
+/*   Updated: 2025/02/04 15:09:15 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 	{
 		write(1, "\n", 1);
-		free_stack(&a);
-		free_stack(&b);
 		return (0);
 	}
 

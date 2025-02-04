@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:53:36 by camerico          #+#    #+#             */
-/*   Updated: 2025/02/04 15:00:48 by camerico         ###   ########.fr       */
+/*   Updated: 2025/02/04 16:14:35 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,7 @@ void	which_algo(t_stack **a, t_stack **b)
 
 	size = stack_size(*a);
 	if (is_sorted(*a) == true)
-	{
-		free_stack(b);
 		return;
-	}
 	if (size <= 5)
 		{
 			sort_5(a, b);

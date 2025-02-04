@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 18:52:57 by camerico          #+#    #+#             */
-/*   Updated: 2025/02/04 15:00:11 by camerico         ###   ########.fr       */
+/*   Updated: 2025/02/04 15:23:20 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	sa(t_stack **a);
 void	sb(t_stack **b);
 void	ss(t_stack **a, t_stack **b);
 int	*dupplicate_in_array(t_stack *stack);
-void	search_index(t_stack *stack, int *array);
+void	search_index(t_stack *stack);
 int	nb_of_bits(t_stack *stack);
 int check_bit(int index, int bit);
 void radix_sort(t_stack **a, t_stack **b);

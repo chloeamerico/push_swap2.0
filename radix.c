@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 16:19:02 by camerico          #+#    #+#             */
-/*   Updated: 2025/02/04 14:46:04 by camerico         ###   ########.fr       */
+/*   Updated: 2025/02/04 16:14:43 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,20 +36,24 @@ int	*dupplicate_in_array(t_stack *stack)
 }
 
 // parcourir chaque nombre et leur attribuer un index
-void	search_index(t_stack *stack, int *array)
+void	search_index(t_stack *stack)
 {
 	int	i; // pour parcourir le tableau
 	int	index; // valeur a attribuer au champ "index" de la structure
 	int	size;
 	t_stack	*current; //pointeur pour parcourir la pile
+	int	*array;
 
 	size = stack_size(stack);
 	current = stack;
+	array = dupplicate_in_array(stack);
+	if (array == NULL)
+		return;
 	while (current)
 	{
 		i = 0;
 		index = 0;
-		while (i < size)
+		while (i < size) //verifier si c'est bien size - 1 ou juste size
 		{
 			if (current->value > array[i])
 				index++;
@@ -69,6 +73,7 @@ int	nb_of_bits(t_stack *stack)
 
 	bits = 0;
 	index_max = 0;
+	search_index(stack);
 	while (stack)
 	{
 		if (stack->index > index_max)
