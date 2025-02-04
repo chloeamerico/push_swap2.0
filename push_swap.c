@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:53:36 by camerico          #+#    #+#             */
-/*   Updated: 2025/02/03 20:08:49 by camerico         ###   ########.fr       */
+/*   Updated: 2025/02/04 15:00:48 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,10 +71,15 @@ void	which_algo(t_stack **a, t_stack **b)
 		return;
 	}
 	if (size <= 5)
-		sort_5(*a, *b);
-	printf("which algo : Algo choisi avec une taille = %d\n", size);
+		{
+			sort_5(a, b);
+			printf("small sort = %d\n", size);
+		}
 	if (size > 5)
-		radix_sort(a, b);
+		{
+			radix_sort(a, b);
+			printf("radix %d\n", size);
+		}
 }
 
 void	free_stack(t_stack **stack)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chloeamerico <chloeamerico@student.42.f    +#+  +:+       +#+        */
+/*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 23:43:44 by chloeameric       #+#    #+#             */
-/*   Updated: 2025/01/31 16:04:25 by chloeameric      ###   ########.fr       */
+/*   Updated: 2025/02/04 14:44:34 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,21 +59,21 @@ void	reverse_rotate(t_stack **stack)
 	}	
 }
 
-void	rra(t_stack *a)
+void	rra(t_stack **a)
 {
-	reverse_rotate(&a);
+	reverse_rotate(a);
 	printf("rra\n"); //ATTENTION !! mettre ft_printf avant de push
 }
 
-void	rrb(t_stack *b)
+void	rrb(t_stack **b)
 {
-	reverse_rotate(&b);
+	reverse_rotate(b);
 	printf("rrb\n");
 }
 
-void	rrr(t_stack *a, t_stack *b)
+void	rrr(t_stack **a, t_stack **b)
 {
-	reverse_rotate(&a);
-	reverse_rotate(&b);
+	reverse_rotate(a);
+	reverse_rotate(b);
 	printf("rrr\n");
 }

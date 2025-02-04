@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 19:18:00 by camerico          #+#    #+#             */
-/*   Updated: 2025/02/03 17:20:09 by camerico         ###   ########.fr       */
+/*   Updated: 2025/02/04 14:45:39 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,21 +43,21 @@ void	swap(t_stack **stack)
 	}
 }
 
-void	sa(t_stack *a)
+void	sa(t_stack **a)
 {
-	swap(&a);
+	swap(a);
 	printf("sa\n"); //ATTENTION !! mettre ft_printf avant de push
 }
 
-void	sb(t_stack *b)
+void	sb(t_stack **b)
 {
-	swap(&b);
+	swap(b);
 	printf("sb\n");
 }
 
-void	ss(t_stack *a, t_stack *b)
+void	ss(t_stack **a, t_stack **b)
 {
-	swap(&a);
-	swap(&b);
+	swap(a);
+	swap(b);
 	printf("ss\n");
 }

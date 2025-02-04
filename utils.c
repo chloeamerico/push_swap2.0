@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:13:31 by camerico          #+#    #+#             */
-/*   Updated: 2025/01/14 18:41:25 by camerico         ###   ########.fr       */
+/*   Updated: 2025/02/04 14:04:38 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,13 @@ int	stack_size(t_stack *stack)
 		size++;
 	}
 	return (size);
+}
+
+void	print_stack(t_stack	*stack)
+{
+	while (stack)
+	{
+		printf("%d\n", stack->value);
+		stack = stack->next;
+	}
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chloeamerico <chloeamerico@student.42.f    +#+  +:+       +#+        */
+/*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 16:52:42 by camerico          #+#    #+#             */
-/*   Updated: 2025/01/31 15:56:39 by chloeameric      ###   ########.fr       */
+/*   Updated: 2025/02/04 14:16:22 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int check_args(int argc, char **argv)
 		return (1);
 	
 	i = 1;
-	while (i < argc - 1)
+	while (i < argc)
 	{
 		if (valid_number(argv[i]) == 1 || limits(argv[i]) == 1)
 			return (1);

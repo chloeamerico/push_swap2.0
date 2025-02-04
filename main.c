@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 14:46:28 by chloeameric       #+#    #+#             */
-/*   Updated: 2025/02/03 19:56:11 by camerico         ###   ########.fr       */
+/*   Updated: 2025/02/04 14:08:56 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	main(int argc, char **argv)
 	a = NULL;
 	b = NULL;
 	i = argc - 1;
-	while(i > 1)
+	while(i >= 1)
 	{
 		create_node_first(&a, ft_atoi(argv[i]));
 		i--;
@@ -47,6 +47,7 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	which_algo(&a, &b);
+	print_stack(a);
 	free_stack(&a);
 	free_stack(&b);
 	return (0);
