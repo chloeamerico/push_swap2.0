@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 16:54:05 by camerico          #+#    #+#             */
-/*   Updated: 2025/02/06 14:07:35 by camerico         ###   ########.fr       */
+/*   Updated: 2025/02/06 14:23:59 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,34 +35,6 @@ void	sort_3(t_stack **a)
 		sa(a);
 }
 
-void	sort_5(t_stack **a, t_stack **b)
-{
-	int	index_min;
-
-	index_min = 0;
-	if (stack_size(*a) <= 3)
-	{
-		sort_3(a);
-		return;
-	}
-	while (stack_size(*a) > 3)
-	{
-		index_min = find_index_min(*a);
-		while (index_min != 0)
-		{
-			if (index_min <= (stack_size(*a) / 2))
-				ra(a);
-			else
-				rra(a);
-		}
-		pb(a, b);
-	}
-	sort_3(a);
-	while (stack_size(*b) > 0)
-		pa(b, a);
-}
-
-// //ancienne sort_5
 // void	sort_5(t_stack **a, t_stack **b)
 // {
 // 	int	index_min;
@@ -76,22 +48,47 @@ void	sort_5(t_stack **a, t_stack **b)
 // 	while (stack_size(*a) > 3)
 // 	{
 // 		index_min = find_index_min(*a);
-// 		if (index_min == 0)
-// 			pb(a, b);
-// 		else if (index_min <= (stack_size(*a) / 2))
-// 			ra(a);
-// 		else
-// 			rra(a);
+// 		while (index_min != 0)
+// 		{
+// 			printf("index min %d", index_min);
+// 			// if (index_min <= (stack_size(*a) / 2))
+// 			// 	ra(a);
+// 			// else
+// 				rra(a);
+// 		}
+// 		pb(a, b);
 // 	}
-// 	sort_3(a); 
-// 	// if (stack_size(*b) > 1 && (*b)->value < (*b)->next->value) // pour gerer le cas ou on travaille avec 4 nb, donc seulement 1 nb dans stack b
-// 	// 	sb(b);
-// 	while (stack_size(*b) > 0)
-// 	{
-// 		pa(b, a);
-// 		// print_stack(*a); 
-// 	}
+// 	sort_3(a);
+// 	// while (stack_size(*b) > 0)
+// 	// 	pa(b, a);
 // }
+
+//ancienne sort_5
+
+void	sort_5(t_stack **a, t_stack **b)
+{
+	int	index_min;
+
+	index_min = 0;
+	if (stack_size(*a) <= 3)
+	{
+		sort_3(a);
+		return;
+	}
+	while (stack_size(*a) > 3)
+	{
+		index_min = find_index_min(*a);
+		if (index_min == 0)
+			pb(a, b);
+		else if (index_min <= (stack_size(*a) / 2))
+			ra(a);
+		else
+			rra(a);
+	}
+	sort_3(a);
+	while (stack_size(*b) > 0)
+		pa(a, b);
+}
 
 int	find_index_min(t_stack *a)
 {
