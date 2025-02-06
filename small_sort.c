@@ -6,13 +6,13 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 16:54:05 by camerico          #+#    #+#             */
-/*   Updated: 2025/02/06 14:23:59 by camerico         ###   ########.fr       */
+/*   Updated: 2025/02/06 15:35:20 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_3(t_stack **a)
+void	sort_3(t_stack **a, int *steps)
 {
 	t_stack	*second;
 	t_stack	*third;
@@ -24,15 +24,15 @@ void	sort_3(t_stack **a)
 	if (!third) //verifie qu'il y a au moins 3 elemts
 	{
 		if ((*a)->value > second->value)
-			sa(a);
+			sa(a, steps);
 		return;
 	}
 	if ((*a)->value > second->value && (*a)->value > third->value)
-		ra(a);
+		ra(a, steps);
 	else if (second->value > (*a)->value && second->value > third->value)
-		rra(a);
+		rra(a, steps);
 	if ((*a)->value > (*a)->next->value)
-		sa(a);
+		sa(a, steps);
 }
 
 // void	sort_5(t_stack **a, t_stack **b)
@@ -65,29 +65,29 @@ void	sort_3(t_stack **a)
 
 //ancienne sort_5
 
-void	sort_5(t_stack **a, t_stack **b)
+void	sort_5(t_stack **a, t_stack **b, int *steps)
 {
 	int	index_min;
 
 	index_min = 0;
 	if (stack_size(*a) <= 3)
 	{
-		sort_3(a);
+		sort_3(a, steps);
 		return;
 	}
 	while (stack_size(*a) > 3)
 	{
 		index_min = find_index_min(*a);
 		if (index_min == 0)
-			pb(a, b);
+			pb(a, b, steps);
 		else if (index_min <= (stack_size(*a) / 2))
-			ra(a);
+			ra(a, steps);
 		else
-			rra(a);
+			rra(a, steps);
 	}
-	sort_3(a);
+	sort_3(a, steps);
 	while (stack_size(*b) > 0)
-		pa(a, b);
+		pa(a, b, steps);
 }
 
 int	find_index_min(t_stack *a)
@@ -101,7 +101,7 @@ int	find_index_min(t_stack *a)
 	current_index = 0;
 	current = a;
 	min_value = a->value;
-	while (current) // ou juste while (current) ??
+	while (current)
 	{
 		if (current->value < min_value)
 		{

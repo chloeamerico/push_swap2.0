@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 18:52:57 by camerico          #+#    #+#             */
-/*   Updated: 2025/02/04 15:23:20 by camerico         ###   ########.fr       */
+/*   Updated: 2025/02/06 15:46:44 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,30 +58,30 @@ int check_args(int argc, char **argv);
 int check_double(t_stack *stack);
 t_stack	*create_node_first(t_stack **stack, int	value);
 bool	is_sorted(t_stack *stack);
-void	which_algo(t_stack **a, t_stack **b);
+void	which_algo(t_stack **a, t_stack **b, int *steps);
 void	push(t_stack **src, t_stack **dest);
-void	pa(t_stack **a, t_stack **b);
-void	pb(t_stack **a, t_stack **b);
+void	pa(t_stack **a, t_stack **b, int *steps);
+void	pb(t_stack **a, t_stack **b, int *steps);
 void	rotate(t_stack **stack);
-void	ra(t_stack **a);
-void	rb(t_stack **b);
-void	rr(t_stack **a, t_stack **b);
+void	ra(t_stack **a, int *steps);
+void	rb(t_stack **b, int *steps);
+void	rr(t_stack **a, t_stack **b, int *steps);
 void	reverse_rotate(t_stack **stack);
-void	rra(t_stack **a);
-void	rrb(t_stack **b);
-void	rrr(t_stack **a, t_stack **b);
+void	rra(t_stack **a, int *steps);
+void	rrb(t_stack **b, int *steps);
+void	rrr(t_stack **a, t_stack **b, int *steps);
 void	swap(t_stack **stack);
-void	sa(t_stack **a);
-void	sb(t_stack **b);
-void	ss(t_stack **a, t_stack **b);
+void	sa(t_stack **a, int *steps);
+void	sb(t_stack **b, int *steps);
+void	ss(t_stack **a, t_stack **b, int *steps);
 int	*dupplicate_in_array(t_stack *stack);
 void	search_index(t_stack *stack);
 int	nb_of_bits(t_stack *stack);
 int check_bit(int index, int bit);
-void radix_sort(t_stack **a, t_stack **b);
+void radix_sort(t_stack **a, t_stack **b, int *steps);
 int	stack_size(t_stack *stack);
-void	sort_3(t_stack **a);
-void	sort_5(t_stack **a, t_stack **b);
+void	sort_3(t_stack **a, int *steps);
+void	sort_5(t_stack **a, t_stack **b, int *steps);
 int	find_index_min(t_stack *a);
 long	ft_atol(const char *nptr);
 void	free_stack(t_stack **stack);

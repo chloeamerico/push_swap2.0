@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 18:48:31 by camerico          #+#    #+#             */
-/*   Updated: 2025/02/03 18:36:37 by camerico         ###   ########.fr       */
+/*   Updated: 2025/02/06 15:45:10 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,16 @@ void	push(t_stack **src, t_stack **dest)
 	}
 }
 
-void	pa(t_stack **a, t_stack **b)
+void	pa(t_stack **a, t_stack **b, int *steps)
 {
 	push(b, a);
 	printf("pa\n"); //ATTENTION !! mettre ft_printf avant de push
+	(*steps)++;
 }
 
-void	pb(t_stack **a, t_stack **b)
+void	pb(t_stack **a, t_stack **b, int *steps)
 {
 	push(a, b);
 	printf("pb\n");
+	(*steps)++;
 }

@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:53:36 by camerico          #+#    #+#             */
-/*   Updated: 2025/02/04 16:14:35 by camerico         ###   ########.fr       */
+/*   Updated: 2025/02/06 15:33:05 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ bool	is_sorted(t_stack *stack) //fonction en booleen
 }
 
 //pour choisir quel algorithme choisir
-void	which_algo(t_stack **a, t_stack **b)
+void	which_algo(t_stack **a, t_stack **b, int *steps) //steps a enlever
 {
 	int	size;
 
@@ -69,12 +69,12 @@ void	which_algo(t_stack **a, t_stack **b)
 		return;
 	if (size <= 5)
 		{
-			sort_5(a, b);
+			sort_5(a, b, steps);
 			printf("small sort = %d\n", size);
 		}
 	if (size > 5)
 		{
-			radix_sort(a, b);
+			radix_sort(a, b, steps);
 			printf("radix %d\n", size);
 		}
 }

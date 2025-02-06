@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 14:46:28 by chloeameric       #+#    #+#             */
-/*   Updated: 2025/02/04 15:09:15 by camerico         ###   ########.fr       */
+/*   Updated: 2025/02/06 15:47:10 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@ int	main(int argc, char **argv)
 	t_stack	*a;
 	t_stack	*b;
 	int	i;
+	int	steps; // a renlever apres
 
+	steps = 0;
 	if (argc < 2)
 	{
 		write(1, "\n", 1);
@@ -44,8 +46,9 @@ int	main(int argc, char **argv)
 		free_stack(&a);
 		return (0);
 	}
-	which_algo(&a, &b);
+	which_algo(&a, &b, &steps);
 	print_stack(a);
+	printf("Nombre de mouvements : %d\n", steps);
 	free_stack(&a);
 	free_stack(&b);
 	return (0);
