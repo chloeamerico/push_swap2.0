@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 14:46:28 by chloeameric       #+#    #+#             */
-/*   Updated: 2025/02/10 15:59:17 by camerico         ###   ########.fr       */
+/*   Updated: 2025/02/10 18:44:06 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	which_algo(&a, &b);
+	// print_stack(a);
 	free_stack(&a);
 	free_stack(&b);
 	return (0);
