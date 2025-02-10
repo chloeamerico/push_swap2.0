@@ -5,56 +5,35 @@
 #                                                     +:+ +:+         +:+      #
 #    By: camerico <camerico@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/01/31 15:00:20 by chloeameric       #+#    #+#              #
-#    Updated: 2025/02/10 15:15:20 by camerico         ###   ########.fr        #
+#    Created: 2024/12/03 13:43:51 by camerico          #+#    #+#              #
+#    Updated: 2024/12/03 13:46:29 by camerico         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = push_swap
+NAME = libftprintf.a
 
-SRCS = srcs/main.c \
-	srcs/parsing.c \
-	srcs/push_swap.c \
-	srcs/push.c \
-	srcs/radix.c \
-	srcs/reverse_rotate.c \
-	srcs/rotate.c \
-	srcs/small_sort.c \
-	srcs/swap.c \
-	srcs/utils.c \
+SRCS = ft_printf.c ft_putchar.c ft_putstr.c print_hexa.c \
+	print_integer.c print_pointeur.c print_unsigned.c ft_itoa.c \
+	ft_strlen.c
 
 OBJS = $(SRCS:.c=.o)
-HEADER = push_swap.h
+HEADER = ft_printf.h
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -I.
-LIBFT_DIR = libft
-PRINTF_DIR = ft_printf
-LIBFT = $(LIBFT_DIR)/libft.a
-PRINTF = $(PRINTF_DIR)/libftprintf.a
+CFLAGS = -Wall -Wextra -Werror
 
-all: $(LIBFT) $(PRINTF) $(NAME)
+all: $(NAME)
 
-$(LIBFT):
-	make -C $(LIBFT_DIR)
-
-$(PRINTF):
-	make -C $(PRINTF_DIR)
-
-$(NAME): $(OBJS) $(LIBFT) $(PRINTF)
-	$(CC) $(CFLAGS) $(OBJS) -L$(LIBFT_DIR) -lft -L$(PRINTF_DIR) -lftprintf -o $(NAME)
+$(NAME): $(OBJS)
+	ar -rcs $(NAME) $(OBJS)
 
 %.o: %.c $(HEADER)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJS)
-	make clean -C $(LIBFT_DIR)
-	make clean -C $(PRINTF_DIR)
 
 fclean: clean
 	rm -f $(NAME)
-	make fclean -C $(LIBFT_DIR)
-	make fclean -C $(PRINTF_DIR)
 
 re: fclean all
 

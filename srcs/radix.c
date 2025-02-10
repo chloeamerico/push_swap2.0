@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 16:19:02 by camerico          #+#    #+#             */
-/*   Updated: 2025/02/06 15:36:43 by camerico         ###   ########.fr       */
+/*   Updated: 2025/02/06 19:00:49 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ void	search_index(t_stack *stack)
 		current->index = index;
 		current = current->next;
 	}
+	free(array);
 }
 
 // trouver l'index le plus grand, et donc le nombre de bit a utiliser.
@@ -95,7 +96,7 @@ int check_bit(int index, int bit)
 }
 
 
-void radix_sort(t_stack **a, t_stack **b, int *steps)
+void radix_sort(t_stack **a, t_stack **b)
 {
     int max_bits;	// Nombre de bits nécessaires
     int size;
@@ -104,7 +105,6 @@ void radix_sort(t_stack **a, t_stack **b, int *steps)
 
     size = stack_size(*a);
     max_bits = nb_of_bits(*a);
-
     i = 0;
     while (i < max_bits)	// Parcourir chaque bit (0 à max_bits - 1)
     {
@@ -112,13 +112,13 @@ void radix_sort(t_stack **a, t_stack **b, int *steps)
         while (j < size)	 // Parcourir tous les éléments de 'a'
         {
             if (check_bit((*a)->index, i))	// Vérifie si le iᵉ bit est 1
-                ra(a, steps);				// Conserver dans 'a' avec ra
+                ra(a);				// Conserver dans 'a' avec ra
 			else
-				pb(a, b, steps);				// Déplacer dans 'b' avec pb
+				pb(a, b);				// Déplacer dans 'b' avec pb
             j++;
         } 
         while (*b)				// Réintégrer tous les éléments de 'b' dans 'a'
-            pa(a, b, steps);
+            pa(a, b);
         i++;
     }
 }

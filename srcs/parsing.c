@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 16:52:42 by camerico          #+#    #+#             */
-/*   Updated: 2025/02/04 14:16:22 by camerico         ###   ########.fr       */
+/*   Updated: 2025/02/10 15:35:48 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,15 +58,28 @@ int limits(char *str)
 int check_args(int argc, char **argv)
 {
 	int i;
+	int	j;
+	char	**number;
 	
 	if (argc < 2) //on verifie min 2 arguments
 		return (1);
-	
 	i = 1;
 	while (i < argc)
 	{
-		if (valid_number(argv[i]) == 1 || limits(argv[i]) == 1)
+		number = ft_split(argv[i], ' '); // peut-etre ' '
+		if (!number)
 			return (1);
+		j = 0;
+		while (number[j])
+		{
+			if (valid_number(number[j]) == 1 || limits(number[j]) == 1)
+			{
+				free_split(number);
+				return (1);
+			}
+			j++;
+		}
+		free_split(number);
 		i++;
 	}
 	return (0);

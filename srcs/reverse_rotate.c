@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 23:43:44 by chloeameric       #+#    #+#             */
-/*   Updated: 2025/02/06 15:46:13 by camerico         ###   ########.fr       */
+/*   Updated: 2025/02/06 19:04:26 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,24 +59,21 @@ void	reverse_rotate(t_stack **stack)
 	}	
 }
 
-void	rra(t_stack **a, int *steps)
+void	rra(t_stack **a)
 {
 	reverse_rotate(a);
 	printf("rra\n"); //ATTENTION !! mettre ft_printf avant de push
-	(*steps)++;
 }
 
-void	rrb(t_stack **b, int *steps)
+void	rrb(t_stack **b)
 {
 	reverse_rotate(b);
 	printf("rrb\n");
-	(*steps)++;
 }
 
-void	rrr(t_stack **a, t_stack **b, int *steps)
+void	rrr(t_stack **a, t_stack **b)
 {
 	reverse_rotate(a);
 	reverse_rotate(b);
 	printf("rrr\n");
-	(*steps)++;
 }

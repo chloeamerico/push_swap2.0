@@ -1,38 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/14 16:13:31 by camerico          #+#    #+#             */
-/*   Updated: 2025/02/06 15:24:12 by camerico         ###   ########.fr       */
+/*   Created: 2024/11/14 12:41:46 by camerico          #+#    #+#             */
+/*   Updated: 2024/11/27 12:40:05 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
+#include <stdio.h>
+#include <string.h>
+#include <unistd.h>
 
-// retourne la taille de la liste
-int	stack_size(t_stack *stack)
+// passe le char c en maj
+int	ft_toupper(int c)
 {
-	int	size;
-	t_stack	*tmp;
-
-	size = 0;
-	tmp = stack;
-	while (tmp)
-	{
-		tmp = tmp->next;
-		size++;
-	}
-	return (size);
-}
-
-void	print_stack(t_stack	*stack)
-{
-	while (stack)
-	{
-		printf("%d\n", stack->value);
-		stack = stack->next;
-	}
+	if (c >= 'a' && c <= 'z')
+		c -= 32;
+	return (c);
 }

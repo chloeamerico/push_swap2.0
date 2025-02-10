@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 14:46:28 by chloeameric       #+#    #+#             */
-/*   Updated: 2025/02/06 15:47:10 by camerico         ###   ########.fr       */
+/*   Updated: 2025/02/10 15:59:17 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ int	main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
-	int	i;
-	int	steps; // a renlever apres
+	int	i; // pour parcourir les argv
+	int j; // pour parcourir les arguments qui ont ete divises grace au split
+	char	**numbers; //tableau temporaire pour stocker les nb apres le split
 
-	steps = 0;
 	if (argc < 2)
 	{
 		write(1, "\n", 1);
@@ -37,7 +37,14 @@ int	main(int argc, char **argv)
 	i = argc - 1;
 	while(i >= 1)
 	{
-		create_node_first(&a, ft_atoi(argv[i]));
+		numbers = ft_split(argv[i], ' ');
+		j = 0;
+		while (numbers[j])
+		{
+			create_node_first(&a, ft_atoi(numbers[j]));
+			j++;
+		}
+		free_split(numbers);
 		i--;
 	}
 	if (check_double(a)) // check les doubles dans a
@@ -46,9 +53,7 @@ int	main(int argc, char **argv)
 		free_stack(&a);
 		return (0);
 	}
-	which_algo(&a, &b, &steps);
-	print_stack(a);
-	printf("Nombre de mouvements : %d\n", steps);
+	which_algo(&a, &b);
 	free_stack(&a);
 	free_stack(&b);
 	return (0);
