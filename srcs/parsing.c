@@ -6,26 +6,17 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 16:52:42 by camerico          #+#    #+#             */
-/*   Updated: 2025/02/10 16:25:59 by camerico         ###   ########.fr       */
+/*   Updated: 2025/02/11 18:34:24 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// step 1 : verifie si le nombre est valide
-// step 2 : converti en long et on le met dans la stack a
-// step 3 : reprend la stack a et verifie si chaque nb est dans les limites de int
-// attetion a skip les arguments vides
-// un ./push_swap 3 "" "    42  17" 4 ==> est cense passer 
-// 42 et 17 seront mis dans 2 indexes differents dans ma stack (faire un split pour chaque argumt)
-// faire le check des doubles sur la stack directement
-// si tous les arguments sont vides ==> erreur
-
 // verifie qu'il n'y a que des nombres valides (y compris les signes)
 // avant de faire atol (step 1)
-int valid_number(char *str)
+int	valid_number(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (!str || str[0] == '\0')
@@ -43,30 +34,27 @@ int valid_number(char *str)
 	return (0);
 }
 
-int limits(char *str)
+int	limits(char *str)
 {
-	long nb;
+	long	nb;
 
-	nb = atol(str); //ATTENTION !! avant de push, mettre ft_atol
+	nb = ft_atol(str);
 	if ((nb > INT_MAX) || (nb < INT_MIN))
 		return (1);
 	return (0);
 }
 
-
 // applique la fonction valid_number et limits a chaque argument
-int check_args(int argc, char **argv)
+int	check_args(int argc, char **argv)
 {
-	int i;
-	int	j;
+	int		i;
+	int		j;
 	char	**number;
-	
-	if (argc < 2) //on verifie min 2 arguments
-		return (1);
+
 	i = 1;
 	while (i < argc)
 	{
-		number = ft_split(argv[i], ' '); // peut-etre ' '
+		number = ft_split(argv[i], ' ');
 		if (!number)
 			return (1);
 		j = 0;
@@ -86,7 +74,7 @@ int check_args(int argc, char **argv)
 }
 
 // parcours la stack et verifie si aucune valeur n'est presente en double
-int check_double(t_stack *stack)
+int	check_double(t_stack *stack)
 {
 	t_stack	*i;
 	t_stack	*j;

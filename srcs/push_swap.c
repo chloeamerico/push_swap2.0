@@ -6,49 +6,28 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:53:36 by camerico          #+#    #+#             */
-/*   Updated: 2025/02/06 19:08:45 by camerico         ###   ########.fr       */
+/*   Updated: 2025/02/11 16:58:00 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// // fonction pour creer un nouveau noeud avec la valeur qu'il doit stocker
-// t_stack *new_node(int value)
-// {
-// 	t_stack *new;
-
-// 	new = malloc(sizeof(t_stack));
-// 	if (!new)
-// 		return (NULL);
-// 	new->value = value;
-// 	new->next = NULL;
-// 	return (new);
-// }
-
-// // fonction pour ajouter un noeud en haut de la stack
-// void	add_first(t_stack **stack, t_stack *new)
-// {
-// 	new->next = *stack;
-// 	*stack = new;
-// }
-
-// OU on fusionne les deux du dessus
-t_stack	*create_node_first(t_stack **stack, int	value)
+//fonction pr creer un nouveau noeud et le mette en haut de la pile directement.
+t_stack	*create_node_first(t_stack **stack, int value)
 {
 	t_stack	*new;
-	
+
 	new = malloc(sizeof(t_stack));
 	if (!new)
 		return (NULL);
 	new->value = value;
 	new->next = *stack;
-
 	*stack = new;
-	return (new); //peut-etre renvoyer *stack ??
+	return (new);
 }
 
 //fonction pour verifier si c'est deja trié
-bool	is_sorted(t_stack *stack) //fonction en booleen
+bool	is_sorted(t_stack *stack)
 {
 	while (stack->next)
 	{
@@ -66,11 +45,11 @@ void	which_algo(t_stack **a, t_stack **b)
 
 	size = stack_size(*a);
 	if (is_sorted(*a) == true)
-		return;
+		return ;
 	if (size <= 5)
-			sort_5(a, b);
+		sort_5(a, b);
 	if (size > 5)
-			radix_sort(a, b);
+		radix_sort(a, b);
 }
 
 void	free_stack(t_stack **stack)
@@ -84,4 +63,3 @@ void	free_stack(t_stack **stack)
 		free(tmp);
 	}
 }
-

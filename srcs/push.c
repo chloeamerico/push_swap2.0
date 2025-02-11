@@ -6,13 +6,10 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 18:48:31 by camerico          #+#    #+#             */
-/*   Updated: 2025/02/06 19:03:43 by camerico         ###   ########.fr       */
+/*   Updated: 2025/02/11 17:13:45 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
 #include "push_swap.h"
 
 void	push(t_stack **src, t_stack **dest)
@@ -21,22 +18,21 @@ void	push(t_stack **src, t_stack **dest)
 
 	if (*src)
 	{
-		head_src = *src; // on initialise
-
-		*src = head_src->next; // on donne au 2e noeud le role de tête de la pile
-		head_src->next = *dest;  // on fait pointer la tête de a vers la tête de b (qui passera donc en 2eme noeud)
-		*dest = head_src; // on place le premier noeud de a comme tête de b
+		head_src = *src;
+		*src = head_src->next;
+		head_src->next = *dest;
+		*dest = head_src;
 	}
 }
 
 void	pa(t_stack **a, t_stack **b)
 {
 	push(b, a);
-	printf("pa\n"); //ATTENTION !! mettre ft_printf avant de push
+	ft_printf("pa\n");
 }
 
 void	pb(t_stack **a, t_stack **b)
 {
 	push(a, b);
-	printf("pb\n");
+	ft_printf("pb\n");
 }

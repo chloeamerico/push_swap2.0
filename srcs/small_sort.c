@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 16:54:05 by camerico          #+#    #+#             */
-/*   Updated: 2025/02/06 19:05:38 by camerico         ###   ########.fr       */
+/*   Updated: 2025/02/11 16:43:14 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@ void	sort_3(t_stack **a)
 	t_stack	*third;
 
 	if (stack_size(*a) < 2)
-		return;
+		return ;
 	second = (*a)->next;
 	third = second->next;
-	if (!third) //verifie qu'il y a au moins 3 elemts
+	if (!third)
 	{
 		if ((*a)->value > second->value)
 			sa(a);
-		return;
+		return ;
 	}
 	if ((*a)->value > second->value && (*a)->value > third->value)
 		ra(a);
@@ -35,36 +35,6 @@ void	sort_3(t_stack **a)
 		sa(a);
 }
 
-// void	sort_5(t_stack **a, t_stack **b)
-// {
-// 	int	index_min;
-
-// 	index_min = 0;
-// 	if (stack_size(*a) <= 3)
-// 	{
-// 		sort_3(a);
-// 		return;
-// 	}
-// 	while (stack_size(*a) > 3)
-// 	{
-// 		index_min = find_index_min(*a);
-// 		while (index_min != 0)
-// 		{
-// 			printf("index min %d", index_min);
-// 			// if (index_min <= (stack_size(*a) / 2))
-// 			// 	ra(a);
-// 			// else
-// 				rra(a);
-// 		}
-// 		pb(a, b);
-// 	}
-// 	sort_3(a);
-// 	// while (stack_size(*b) > 0)
-// 	// 	pa(b, a);
-// }
-
-//ancienne sort_5
-
 void	sort_5(t_stack **a, t_stack **b)
 {
 	int	index_min;
@@ -73,7 +43,7 @@ void	sort_5(t_stack **a, t_stack **b)
 	if (stack_size(*a) <= 3)
 	{
 		sort_3(a);
-		return;
+		return ;
 	}
 	while (stack_size(*a) > 3)
 	{
@@ -111,70 +81,5 @@ int	find_index_min(t_stack *a)
 		current_index++;
 		current = current->next;
 	}
-	return (index_min);	
+	return (index_min);
 }
-
-
-
-
-
-// void	sort_5(t_stack **a, t_stack **b)
-// {
-// 	int	index_min;
-
-// 	if (stack_size(*a) <= 3)
-// 		return(sort_3(a));
-// 	while (stack_size(*a) > 3)
-// 	{
-// 		index_min = find_index_min(*a);
-// 		if (index_min == 0)
-// 			pb(a, b);
-// 		else if (index_min <= (stack_size(*a) / 2))
-// 			ra(a);
-// 		else
-// 			rra(a);
-// 	}
-// 	sort_3(a); 
-// 	if (stack_size(*b) > 1 && (*b)->value < (*b)->next->value) // pour gerer le cas ou on travaille avec 4 nb, donc seulement 1 nb dans stack b
-// 		sb(b);
-// 	while (stack_size(*b) > 0)
-// 	{
-// 		pa(b, a);
-// 		// print_stack(*a); 
-// 	}
-// }
-
-
-// void	sort_5(t_stack **a, t_stack **b)
-// {
-// 	int	index_min;
-
-// 	if (stack_size(*a) <= 3)
-// 	{
-// 		sort_3(a);
-// 		return;
-// 	}
-// 	while (stack_size(*a) > 3)
-// 	{
-// 		index_min = find_index_min(*a);
-// 		while (index_min != 0)
-// 		{
-// 			if (index_min <= (stack_size(*a) / 2))
-// 			{
-// 				ra(a);
-// 				index_min--;
-// 			}
-// 			else
-// 			{
-// 				rra(a);
-// 				index_min--;
-// 			}
-// 		}
-// 		pb(a, b);
-// 	}
-// 	sort_3(a); 
-// 	if (*b && (*b)->next && (*b)->value < (*b)->next->value)
-// 		sb(b);
-// 	while (*b)
-// 		pa(b, a);
-// }
