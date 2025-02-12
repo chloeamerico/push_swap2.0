@@ -6,23 +6,32 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:53:36 by camerico          #+#    #+#             */
-/*   Updated: 2025/02/11 16:58:00 by camerico         ###   ########.fr       */
+/*   Updated: 2025/02/12 14:09:30 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-//fonction pr creer un nouveau noeud et le mette en haut de la pile directement.
-t_stack	*create_node_first(t_stack **stack, int value)
+//fonction pr creer un nouveau noeud et le mette en bas de la pile directement.
+t_stack	*create_node_last(t_stack **stack, int value)
 {
 	t_stack	*new;
+	t_stack	*tmp;
 
 	new = malloc(sizeof(t_stack));
 	if (!new)
 		return (NULL);
 	new->value = value;
-	new->next = *stack;
-	*stack = new;
+	new->next = NULL;
+	if (*stack == NULL)
+		*stack = new;
+	else
+	{
+		tmp = *stack;
+		while (tmp->next)
+			tmp = tmp->next;
+		tmp->next = new;
+	}
 	return (new);
 }
 
@@ -44,9 +53,11 @@ void	which_algo(t_stack **a, t_stack **b)
 	int	size;
 
 	size = stack_size(*a);
-	if (is_sorted(*a) == true)
+	if (size == 0)
 		return ;
-	if (size <= 5)
+	else if (is_sorted(*a) == true)
+		return ;
+	else if (size >= 2 && size <= 5)
 		sort_5(a, b);
 	if (size > 5)
 		radix_sort(a, b);

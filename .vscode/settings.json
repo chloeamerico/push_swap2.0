@@ -1,8 +1,0 @@
-{
-	"files.associations": {
-		"unistd.h": "c",
-		"stdlib.h": "c"
-	},
-	"makefile.configureOnOpen": false,
-	"cmake.sourceDirectory": "/home/camerico/Documents/42cursus/push_swap (vf)/push_swap_visualizer"
-}

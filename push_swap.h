@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 17:30:18 by camerico          #+#    #+#             */
-/*   Updated: 2025/02/11 17:58:05 by camerico         ###   ########.fr       */
+/*   Updated: 2025/02/12 13:53:11 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,12 @@ typedef struct s_stack
 /* PROTO                                                                      */
 /* ************************************************************************** */
 
-int	ft_atoi(const char *nptr);
-int	valid_number(char *str);
-int	limits(char *str);
-int	check_args(int argc, char **argv);
-int	check_double(t_stack *stack);
-t_stack	*create_node_first(t_stack **stack, int value);
+int		ft_atoi(const char *nptr);
+int		valid_number(char *str);
+int		limits(char *str);
+int		check_args(int argc, char **argv);
+int		check_double(t_stack *stack);
+t_stack	*create_node_last(t_stack **stack, int value);
 bool	is_sorted(t_stack *stack);
 void	which_algo(t_stack **a, t_stack **b);
 void	push(t_stack **src, t_stack **dest);
@@ -68,15 +68,15 @@ void	swap(t_stack **stack);
 void	sa(t_stack **a);
 void	sb(t_stack **b);
 void	ss(t_stack **a, t_stack **b);
-int	*dupplicate_in_array(t_stack *stack);
+int		*dupplicate_in_array(t_stack *stack);
 void	search_index(t_stack *stack);
-int	nb_of_bits(t_stack *stack);
-int	check_bit(int index, int bit);
+int		nb_of_bits(t_stack *stack);
+int		check_bit(int index, int bit);
 void	radix_sort(t_stack **a, t_stack **b);
-int	stack_size(t_stack *stack);
+int		stack_size(t_stack *stack);
 void	sort_3(t_stack **a);
 void	sort_5(t_stack **a, t_stack **b);
-int	find_index_min(t_stack *a);
+int		find_index_min(t_stack *a);
 long	ft_atol(const char *nptr);
 void	free_stack(t_stack **stack);
 void	print_stack(t_stack *stack);

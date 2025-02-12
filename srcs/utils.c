@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:13:31 by camerico          #+#    #+#             */
-/*   Updated: 2025/02/11 15:48:40 by camerico         ###   ########.fr       */
+/*   Updated: 2025/02/12 13:16:29 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // retourne la taille de la liste
 int	stack_size(t_stack *stack)
 {
-	int	size;
+	int		size;
 	t_stack	*tmp;
 
 	size = 0;

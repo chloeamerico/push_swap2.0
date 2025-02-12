@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 16:54:05 by camerico          #+#    #+#             */
-/*   Updated: 2025/02/11 16:43:14 by camerico         ###   ########.fr       */
+/*   Updated: 2025/02/12 13:17:13 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,9 @@ void	sort_5(t_stack **a, t_stack **b)
 
 int	find_index_min(t_stack *a)
 {
-	int	index_min;
-	int	current_index;
-	int	min_value;
+	int		index_min;
+	int		current_index;
+	int		min_value;
 	t_stack	*current;
 
 	index_min = 0;

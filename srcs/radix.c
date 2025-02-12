@@ -6,7 +6,7 @@
 /*   By: camerico <camerico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 16:19:02 by camerico          #+#    #+#             */
-/*   Updated: 2025/02/11 15:58:06 by camerico         ###   ########.fr       */
+/*   Updated: 2025/02/12 13:16:52 by camerico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,11 @@ int	*dupplicate_in_array(t_stack *stack)
 // parcourir chaque nombre et leur attribuer un index
 void	search_index(t_stack *stack)
 {
-	int	i;
-	int	index;
-	int	size;
+	int		i;
+	int		index;
+	int		size;
 	t_stack	*current;
-	int	*array;
+	int		*array;
 
 	size = stack_size(stack);
 	current = stack;
